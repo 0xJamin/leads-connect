@@ -9,7 +9,7 @@ import { useEffect, useState } from "react"
 const Home: NextPage = () => {
   const [leader, setLeader] = useState<LeaderData | undefined>()
 
-  const fetcher = (...args) => fetch(...args).then((res) => res.json())
+  const fetcher = (...args: Parameters<typeof fetch>) => fetch(...args).then((res) => res.json())
   const { data, error,  } = useSWR('/api/leaders', fetcher)
   // useEffect(() => {
   //   axios.get("/api/leaders")
