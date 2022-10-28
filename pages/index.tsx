@@ -1,26 +1,13 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import axios from "axios"
 import useSWR from 'swr'
-import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import { useEffect, useState } from "react"
 
 const Home: NextPage = () => {
-  const [leader, setLeader] = useState<LeaderData | undefined>()
 
   const fetcher = (...args: Parameters<typeof fetch>) => fetch(...args).then((res) => res.json())
-  const { data, error,  } = useSWR('/api/leaders', fetcher)
-  // useEffect(() => {
-  //   axios.get("/api/leaders")
-  //   .then(res => {
-  //     console.log(res.data)
-  //     setLeader(res.data)
-  //   })
-  //   .catch(err => {
-  //     console.log(err);
-  // })
-  // }, [])
+  const { data, error, } = useSWR('/api/leaders', fetcher)
+
   if (error) return <div>Failed to load</div>
   if (!data) return <div>Loading...</div>
   // `https://twitter.com/share?text=Hi Jamin @0xJamin, I just found you at the @cmfestafrica Festival I'd love to connect with you and learn from you, cheers &hashtags=CMFest22`,
