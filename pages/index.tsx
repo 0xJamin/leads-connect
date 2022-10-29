@@ -15,7 +15,7 @@ const Home: NextPage = () => {
   if (error) return <div>Failed to load</div>
   if (!data) return <div>Loading...</div>
   if (eventPeriod === "start") {
-    router.push("https://twitter.com/intent/tweet?hashtags=CMFest22&url=false&text=Hi, I'm currently at #CMFest22 festival. if you're here connect let's connectV@cmfestafrica")
+    router.push("https://twitter.com/intent/tweet?hashtags=CMFest22&url=&text=Hi, I'm currently at CMFest22 festival. if you're here connect let's connect @cmfestafrica")
   }
   // ``
   return (
